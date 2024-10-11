@@ -1,0 +1,34 @@
+<div>
+  <h2>Random Pokemon Data</h2>
+  <div>
+    <div>
+      Name: <b>{{ this.pokemonObj.name }}</b>
+    </div>
+    <div>
+      <img src="{{ this.pokemonObj.sprites.front_default }}" />
+      <img src="{{ this.pokemonObj.sprites.back_default }}" />
+      <img src="{{ this.pokemonObj.sprites.front_shiny }}" />
+      <img src="{{ this.pokemonObj.sprites.back_shiny }}" />
+    </div>
+    <div style="margin-bottom: 30px">
+      <div>weight: {{ pokemonObj.weight }}</div>
+      <div>Height: {{ pokemonObj.height }}</div>
+    </div>
+    <div style="margin-bottom: 30px">
+      <label>Abilities</label>
+      <div *ngFor="let ability of this.pokemonObj.abilities">
+        <label>{{ ability.ability.name }}</label>
+      </div>
+    </div>
+    <div>
+      <label>Moves</label>
+      <ul *ngFor="let moves of this.pokemonObj.moves">
+        <li>{{ moves.move.name }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<button (click)="shinyBidoof()">Click For Shiny Bidoof</button>
+<img *ngIf="showBidoof" src="{{ this.bidoof }}" />
+<router-outlet></router-outlet>
